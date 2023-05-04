@@ -70,21 +70,25 @@ $hotels = [
         defer></script>
 </head>
 
-<body class="d-flex justify-content-center align-items-center mt-5 text-center">
-
-    <h1> </h1>
-
-    <?php foreach ($hotels as $hotel): ?>
-        <div class="card rounded-4 p-3 m-2">
-            <?php foreach ($hotel as $key => $value): ?>
-                <p>
-                    <?= $key . " : " . $value; ?>
-                </p>
-            <?php endforeach; ?>
-        </div>
-    <?php endforeach; ?>
+<body>
+    <h1 class="container-lg text-center"> HOTEL LIST </h1>
+    <div class="container-fluid d-flex justify-content-center align-items-center mt-5">
 
 
+        <?php foreach ($hotels as $hotel): ?>
+            <div class="card rounded-4 p-3 m-2">
+                <?php foreach ($hotel as $key => $value): ?>
+                    <span class="fw-bold">
+                        <?= $key . ' : ' ?>
+                    </span>
+                    <span>
+                        <?= $value ?>
+                    </span>
+                <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
+
+    </div>
 
 
 
