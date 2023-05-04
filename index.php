@@ -151,22 +151,22 @@ if ($_GET['vote5'] == "on") {
             </form>
         </div>
 
-        <div class="container_card d-flex flex-wrap justify-content-center align-items-center mt-5">
-            <h1 class="container-fluid text-center"> HOTEL LIST </h1>
-
-            <?php foreach ($hotels as $hotel): ?>
-                <div class="card my_card col-6 col-md-3 rounded-4 p-3 m-3">
-                    <?php foreach ($hotel as $key => $value): ?>
-                        <span class="fw-bold">
-                            <?= $key . ' : ' ?>
-                        </span>
-                        <span>
-                            <?= $value ?>
-                        </span>
-                    <?php endforeach; ?>
-                </div>
-            <?php endforeach; ?>
-
+        <div class="container_card w-100">
+            <h1 class="container-fluid text-center m-3"> HOTEL LIST </h1>
+            <div class="d-flex flex-wrap justify-content-center align-items-center mt-5">
+                <?php foreach ($hotels as $hotel): ?>
+                    <div class="card my_card col-6 col-md-3 rounded-4 p-3 m-3">
+                        <?php foreach ($hotel as $key => $value): ?>
+                            <span class="fw-bold">
+                                <?= $key . ' : ' ?>
+                            </span>
+                            <span>
+                                <?= $value ?>
+                            </span>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
         </div>
     </div>
 
