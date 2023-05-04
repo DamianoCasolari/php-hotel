@@ -48,6 +48,37 @@ if ($_GET['parking'] == 1) {
     });
 }
 
+// var_dump($_GET['vote']);
+
+if ($_GET['vote'] == "on") {
+    $hotels = array_filter($hotels, function ($hotel) {
+        return $hotel['vote'] >= 1;
+    });
+}
+if ($_GET['vote2'] == "on") {
+    $hotels = array_filter($hotels, function ($hotel) {
+        return $hotel['vote'] >= 2;
+    });
+}
+if ($_GET['vote3'] == "on") {
+    $hotels = array_filter($hotels, function ($hotel) {
+        return $hotel['vote'] >= 3;
+    });
+}
+if ($_GET['vote4'] == "on") {
+    $hotels = array_filter($hotels, function ($hotel) {
+        return $hotel['vote'] >= 4;
+    });
+}
+if ($_GET['vote5'] == "on") {
+    $hotels = array_filter($hotels, function ($hotel) {
+        return $hotel['vote'] >= 5;
+    });
+}
+
+
+
+
 ?>
 
 
