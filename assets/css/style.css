@@ -1,7 +1,6 @@
 /*------ General selector-----  */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: rgb(5, 0, 164);
 }
 
 /* ------Utility selector-----  */
@@ -14,4 +13,19 @@ body {
 
 /* dimension zone  */
 
+
 /* Container zone  */
+
+.container_form {
+    min-height: 100vh !important;
+}
+
+
+.container_card {
+    overflow-y: auto;
+}
+
+.my_card {
+    filter: drop-shadow(1px 2px 3px black);
+    min-height: 350px;
+}

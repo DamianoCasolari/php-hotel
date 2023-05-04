@@ -40,6 +40,14 @@ $hotels = [
 
 ];
 
+// $parking = $_GET['parking'];
+
+if ($_GET['parking'] == 1) {
+    $hotels = array_filter($hotels, function ($hotel) {
+        return $hotel['parking'] == true;
+    });
+}
+
 ?>
 
 
@@ -61,54 +69,75 @@ $hotels = [
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- link css  -->
-    <link rel="stylesheet" href="./assets/css/style.css">
     <!-- link bootstrap  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"
         defer></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
-    <h1 class="container-lg text-center"> HOTEL LIST </h1>
-    <div class="container-fluid d-flex justify-content-center align-items-center mt-5">
+    <!-- <h1 class="container-lg text-center"> HOTEL LIST </h1> -->
+    <div class="d-flex">
+        <div class="container_form d-flex justify-content-center">
+            <form class="h-100" method="GET">
+                <div class="card p-5 bg-dark text-white h-100 rounded-0">
+                    <div class="mb-3">
+                        <label for="parking" class="form-label fw-bold">Only hotels with parking</label>
+                        <input type="checkbox" value="1" name="parking" id="parking">
+                    </div>
+                    <div class="mb-3">
+                        <h6>Only hotels with vote </h6>
+                        <div class="d-flex flex-column text-start">
+                            <div>
+                                <input class="me-2" type="radio" name="vote" id="vote">
+                                <label for="vote" class="form-label fw-bold">1 or more </label>
+                            </div>
+                            <div>
+                                <input class="me-2" type="radio" name="vote2" id="vote2">
+                                <label for="vote2" class="form-label fw-bold">2 or more </label>
+                            </div>
+                            <div>
+                                <input class="me-2" type="radio" name="vote3" id="vote3">
+                                <label for="vote3" class="form-label fw-bold">3 or more</label>
+                            </div>
+                            <div>
+                                <input class="me-2" type="radio" name="vote4" id="vote4">
+                                <label for="vote4" class="form-label fw-bold">4 or more</label>
+                            </div>
+                            <div>
+                                <input class="me-2" type="radio" name="vote5" id="vote5">
+                                <label for="vote5" class="form-label fw-bold">5</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-2 text-center">
+                        <button type="submit" class="btn btn-success">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
 
+        <div class="container_card d-flex flex-wrap justify-content-center align-items-center mt-5">
+            <h1 class="container-fluid text-center"> HOTEL LIST </h1>
 
-        <?php foreach ($hotels as $hotel): ?>
-            <div class="card rounded-4 p-3 m-2">
-                <?php foreach ($hotel as $key => $value): ?>
-                    <span class="fw-bold">
-                        <?= $key . ' : ' ?>
-                    </span>
-                    <span>
-                        <?= $value ?>
-                    </span>
-                <?php endforeach; ?>
-            </div>
-        <?php endforeach; ?>
+            <?php foreach ($hotels as $hotel): ?>
+                <div class="card my_card col-6 col-md-3 rounded-4 p-3 m-3">
+                    <?php foreach ($hotel as $key => $value): ?>
+                        <span class="fw-bold">
+                            <?= $key . ' : ' ?>
+                        </span>
+                        <span>
+                            <?= $value ?>
+                        </span>
+                    <?php endforeach; ?>
+                </div>
+            <?php endforeach; ?>
 
+        </div>
     </div>
-
-
-
-    <!-- <form class="w-50" action="myScript.php" method="POST">
-        <div class="card p-5 bg-dark text-white shadow-lg rounded-5">
-            <div class="mb-3">
-                <label for="text" class="form-label fw-bold">Write the text to correct</label>
-                <textarea class="form-control" id="text" name="text" rows="3"></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="word" class="form-label fw-bold">Taboo word</label>
-                <input type="text" class="form-control" id="word" name="word" placeholder="choose a word to censor">
-            </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary w-25 ">Submit</button>
-                <button type="reset" class="btn btn-danger w-25">Reset</button>
-            </div>
-        </div> -->
-    </form>
-
 
     <!-- link javascript  -->
     <script src="./assets/js/app.js"></script>
